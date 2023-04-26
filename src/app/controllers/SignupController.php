@@ -2,22 +2,24 @@
 
 use Phalcon\Mvc\Controller;
 
+
 class SignupController extends Controller
 {
 
-    public function IndexAction() {
+    public function IndexAction()
+    {
         // defalut action
     }
 
     public function registerAction()
     {
         $user = new Users();
-
         $user->assign(
             $this->request->getPost(),
             [
                 'name',
-                'email'
+                'email',
+                'password'
             ]
         );
         $success = $user->save();
@@ -27,5 +29,6 @@ class SignupController extends Controller
         } else {
             $this->view->message = "Not Register due to following reason: <br>" . implode("<br>", $user->getMessages());
         }
+        $this->response->redirect('login/index');
     }
 }

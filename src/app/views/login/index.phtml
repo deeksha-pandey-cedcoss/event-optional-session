@@ -18,7 +18,14 @@
         <?php echo $this->tag->textField("email"); ?>
     </p>
     <p>
+        <label for="password">Password</label>
+        <?php echo $this->tag->textField("password") ?>
+    </p>
+    <p>
         <?php echo $this->tag->submitButton("Login"); ?>
+    </p>
+    <p>
+   <?php echo $this->tag->linkTo(['/', 'Go back', 'class' => 'btn btn-primary']); ?>
     </p>
     </form>
 </body>
